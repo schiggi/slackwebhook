@@ -2,13 +2,14 @@
 /*------------------------------------------------------------------------
  *  shooker.php
  *  Created by: John Wenzler (nnullandvoidd@gmail.com)
+ *  modified by: Alex Schikalow (alex@schikalow.de)
  *  Available under the MIT License
  *  FOR MORE INFO AND EXAMPLES, VISIT:
  *     https://github.com/jwenzler/Shooker
  * 
  ------------------------------------------------------------------------*/
 
-class Shooker {
+class SlackWebhook {
   
   //No error by default
   private $error = false;
@@ -39,7 +40,7 @@ class Shooker {
   }
   
   function addTrigger($triggerWord) {
-    $trigger = new ShookerTrigger($triggerWord);
+    $trigger = new SlackWebhookTrigger($triggerWord);
     $this->triggers->{$triggerWord} = $trigger;
     return $trigger;
   }
@@ -144,9 +145,8 @@ class Shooker {
   }
 }
 
-
 //class Trigger class
-class ShookerTrigger {
+class SlackWebhookTrigger {
   
   private $triggerWord;
   public $actions = array();
