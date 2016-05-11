@@ -27,6 +27,7 @@ For this page note the following fields:
 <li><b>Descriptive Label</b>: Optional and only used to provide context within Slack integrations list.</li>
 <li><b>Customize Name</b>: Use whatever name you want to display within the Slack client along with your responses from PHP.</li>
 <li><b>Customize Icon</b>: Again, whatever you want here.</li>
+<li><b>Attachments</b>: An array of additional information to attach files or style more information. See <a href="https://api.slack.com/docs/attachments">documentation</a>.</li>
 </ul>
 
 <h3>Setup within PHP</h3>
@@ -36,12 +37,12 @@ For this page note the following fields:
 <h4>Incoming</h4>
 ```php
 //Initialize class with the token from Slack
-$shkr = new Shooker();
+$shkr = new SlackWebhook();
 
 $shkr->setupIncoming('<YOUR WEBHOOK URL HERE>');
 
-//Send a message (message, username, emoji)
-$shkr->sendMessage("Your message here", "Mr. Bot", ":ballot_box_with_check:"); 
+//Send a message (message, channel, username, icon, array $attachments)
+$shkr->sendMessage("Your message here", "Random","Mr. Bot", ":ballot_box_with_check:");
 ```
 
 <h4>Outgoing</h4>
