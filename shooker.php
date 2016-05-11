@@ -44,31 +44,39 @@ class SlackWebhook {
     $this->triggers->{$triggerWord} = $trigger;
     return $trigger;
   }
-  
-  function sendMessage($message, $username, $icon) {
+
+  function sendMessage($message, $channel, $username, $icon, array $attachments) {
     $data = array(
         'text' => $message
     );
-    
+
+    if (isset($channel)) {
+      $data['channel'] = $channel;
+    }
+
     if (isset($username)) {
       $data['username'] = $username;
     }
-    
+
     if (isset($icon)) {
       $data['icon_emoji'] = $icon;
     }
-    
+
+    if (isset($attachments)) {
+      $data['attachments'] = [$attachments];
+    }
+
     $options = array(
-      'http' => array(
-        'header'  => 'Content-type: application/x-www-form-urlencoded\r\n',
-        'method'  => 'POST',
-        'content' => json_encode($data)
-      )
+        'http' => array(
+            'header'  => 'Content-type: application/x-www-form-urlencoded\r\n',
+            'method'  => 'POST',
+            'content' => json_encode($data)
+        )
     );
 
     $context  = stream_context_create($options);
     $result = file_get_contents($this->incomingURL, false, $context);
-    
+
     return $result;
   }
   
