@@ -1,0 +1,24 @@
+{
+    "name": "schiggi/slackwebhook",
+    "type": "library",
+    "description": "Slack webhook",
+    "keywords": [
+        "slack",
+        "webhook"
+    ],
+    "homepage": "https://github.com/schiggi/slackwebhook",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "John Wenzler",
+            "email": "nnullandvoidd@gmail.com"
+        },
+        {
+            "name": "Alex Schikalow",
+            "homepage": "http://www.schikalow.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "slackWebhook\\" : "/" }
+    }
+}
