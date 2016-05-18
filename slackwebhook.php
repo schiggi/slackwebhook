@@ -1,4 +1,4 @@
-<?php
+<?php namespace SlackWebhook;
 /*------------------------------------------------------------------------
  *  shooker.php
  *  Created by: John Wenzler (nnullandvoidd@gmail.com)
